@@ -1,0 +1,29 @@
+name: Soteria
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  soteria:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install cargo-soteria
+        run: cargo install --git https://github.com/soteria-tools/cargo-soteria/ cargo-soteria
+
+      - name: Run soteria setup
+        run: cargo soteria setup
+
+      - name: Run soteria
+        run: cargo soteria
