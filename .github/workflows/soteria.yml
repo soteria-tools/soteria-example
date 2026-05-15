@@ -19,8 +19,8 @@ jobs:
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Install cargo-soteria
-        run: cargo install --git https://github.com/soteria-tools/cargo-soteria/ cargo-soteria
+      - name: Install soteria
+        run: cargo install --git https://github.com/soteria-tools/cargo-soteria/ soteria
 
       - name: Run soteria setup
         run: cargo soteria setup
